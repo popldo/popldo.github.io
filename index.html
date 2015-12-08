@@ -11,6 +11,11 @@
         <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PV7Q33" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script>
+            (function($){
+                $.get('./lib/template/template.html',function(templates){
+                    $('body').append(templates);
+                });
+            })(jQuery);
             var apiUrl = {base:'http://www.linkshops.com/aprilapi/'};
             var translateTemplate = {
                 label:{
@@ -24,29 +29,7 @@
         </script>
         <script type="text/javascript" src="http://dev.linkshops.com/js/lib/aprilapi.js"></script>
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-544XCR');</script>
-        <script id="productDefaultTemplate" type="text/x-jquery-tmpl">
-         <div class="product templateDefault" data-product_id="${product_id}" data-stock-status="${stock_status}">
-            <a href="${url}"><img src="${product_images}" class="img-responsive"></a>
-            <div class="group">
-                <div class="cont" data-brand_id="${seller}">
-                    <a href="#" class="brand-link"><strong>${label.brand} / </strong>${brand}</a>
-                    <a href="${url}"><strong>${label.sku} / </strong>${sku}</a>
-                </div>
-                {{if is_priceblock == false }}
-                <div class="price">{{html product_price}}</div>
-                {{/if}}
-            </div>
-            {{if stock_status == true }}
-                {{if is_priceblock == false }}
-                <button class="btn cart">${label.addToCart}</button>
-                {{else}}
-                <button type="button" class="btn tooltip-cart">${label.addToCart}</button>
-                {{/if}}
-            {{else}}
-                <button class="btn outofstock">${label.outofStock}</button>
-            {{/if}}
-        </div>
-        </script>
+
         <META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>

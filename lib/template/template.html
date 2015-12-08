@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script id="productDefaultTemplate" type="text/x-jquery-tmpl">
+ <div class="product templateDefault" data-product_id="${product_id}" data-stock-status="${stock_status}">
+    <a href="${url}"><img src="${product_images}" class="img-responsive"></a>
+    <div class="group">
+        <div class="cont" data-brand_id="${seller}">
+            <a href="#" class="brand-link"><strong>${label.brand} / </strong>${brand}</a>
+            <a href="${url}"><strong>${label.sku} / </strong>${sku}</a>
+        </div>
+        {{if is_priceblock == false }}
+        <div class="price">{{html product_price}}</div>
+        {{/if}}
+    </div>
+    {{if stock_status == true }}
+        {{if is_priceblock == false }}
+        <button class="btn cart">${label.addToCart}</button>
+        {{else}}
+        <button type="button" class="btn tooltip-cart">${label.addToCart}</button>
+        {{/if}}
+    {{else}}
+        <button class="btn outofstock">${label.outofStock}</button>
+    {{/if}}
+</div>
+</script>
